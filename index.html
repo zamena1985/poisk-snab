@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Поиск и Снабжение</title>
+<meta name="description" content="Служба комплексного снабжения «Поиск и Снабжение», Якутск. Найдём, проверим по чек-листу и отправим любой товар из Якутска в ваш улус.">
+<meta property="og:title" content="Поиск и Снабжение — найдём и доставим любой товар из Якутска">
+<meta property="og:description" content="Оставьте заявку за 2 минуты. Экономим ваше время и деньги на ГСМ. Собственный склад консолидации грузов.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zamena1985.github.io/poisk-snab/">
+<meta property="og:image" content="https://zamena1985.github.io/poisk-snab/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://zamena1985.github.io/poisk-snab/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23152437'/%3E%3Cpath fill='%23fff' d='M14 22h22v16h10l6 7v5h-4a5 5 0 0 1-10 0H26a5 5 0 0 1-10 0h-2V22zm24 6v6h8l-4-6h-4z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F6F3;
+  --surface:#FFFFFF;
+  --text:#1B1F23;
+  --muted:#6B7178;
+  --border:#E4E2DD;
+  --accent:#C1440E;
+  --accent-dark:#9A3509;
+  --accent-soft:#FBEAE2;
+  --navy:#152437;
+  --ok:#2E7D32;
+  --ok-soft:#EAF4E6;
+  --danger:#B3261E;
+  --danger-soft:#FBE9E7;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(21,36,55,.06);
+  color-scheme:light;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+[hidden]{display:none!important;}
+img,svg{max-width:100%;}
+button,input,textarea,select{font-family:inherit;}
+button{cursor:pointer;}
+h1,h2,h3{text-wrap:balance;}
+:focus-visible{outline:3px solid var(--navy);outline-offset:2px;border-radius:6px;}
+.ic{width:1em;height:1em;fill:currentColor;display:inline-block;vertical-align:-.125em;flex-shrink:0;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* HEADER */
+.site-header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 16px;background:var(--surface);border-bottom:1px solid var(--border);
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+}
+.logo{display:flex;align-items:center;gap:10px;min-width:0;}
+.logo-icon{
+  width:40px;height:40px;border-radius:11px;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;
+}
+.logo-text{display:flex;flex-direction:column;line-height:1.2;min-width:0;}
+.logo-text b{font-size:15px;color:var(--navy);font-weight:800;white-space:nowrap;}
+.logo-text span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.header-phone{
+  display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:800;color:var(--navy);
+  text-decoration:none;white-space:nowrap;padding:9px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);
+}
+.header-phone .lbl{display:none;}
+@media(min-width:700px){.header-phone .lbl{display:inline;font-weight:600;color:var(--muted);}}
+
+/* LANDING */
+main{padding-block:0 8px;}
+.hero{padding:40px 16px 26px;text-align:center;max-width:640px;margin:0 auto;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;background:var(--accent-soft);color:var(--accent-dark);
+  font-size:13px;font-weight:700;padding:7px 14px;border-radius:99px;margin-bottom:18px;
+}
+.hero h1{font-size:27px;font-weight:800;color:var(--navy);margin:0 0 14px;line-height:1.25;}
+.hero h1 small{display:block;font-size:15px;font-weight:700;color:var(--muted);margin-top:8px;letter-spacing:.01em;}
+.hero .lead{font-size:17px;color:var(--text);max-width:520px;margin:0 auto 24px;}
+.cta-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--accent);color:#fff;border:none;border-radius:12px;
+  padding:17px 22px;font-size:17px;font-weight:700;width:100%;max-width:420px;
+  transition:background .2s,transform .15s;box-shadow:0 6px 18px rgba(193,68,14,.22);
+}
+.cta-btn:active{transform:scale(.98);}
+.cta-btn:hover{background:var(--accent-dark);}
+.cta-note{font-size:14px;color:var(--muted);margin:12px 0 0;}
+
+.features{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  max-width:640px;margin:26px auto 0;padding:0 16px;
+}
+.feature-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 14px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);
+}
+.feature-card .ic{font-size:22px;color:var(--accent);}
+.feature-card h3{font-size:15px;margin:0;color:var(--navy);font-weight:800;}
+.feature-card p{font-size:14px;color:var(--muted);margin:0;line-height:1.45;}
+
+.how{max-width:640px;margin:0 auto;padding:40px 16px 0;}
+.how h2,.cats-preview h2{font-size:21px;color:var(--navy);margin:0 0 18px;font-weight:800;text-align:center;}
+.steps{display:grid;gap:10px;}
+.step-row{
+  display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;
+}
+.step-num{
+  width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;
+}
+.step-row b{display:block;font-size:16px;color:var(--navy);font-weight:800;margin-bottom:2px;}
+.step-row p{margin:0;font-size:14px;color:var(--muted);}
+
+.cats-preview{padding:40px 16px 10px;max-width:640px;margin:0 auto;}
+.cats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.cat-chip{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;
+}
+.cat-chip .ic{font-size:22px;color:var(--navy);}
+.cat-chip span{font-size:13px;color:var(--text);font-weight:700;line-height:1.25;}
+
+footer{
+  margin-top:44px;padding:28px 16px calc(36px + env(safe-area-inset-bottom,0px));text-align:center;
+  border-top:1px solid var(--border);background:var(--surface);
+}
+footer p{font-size:13px;color:var(--muted);margin:5px 0;}
+footer .req{font-variant-numeric:tabular-nums;}
+.footer-links{display:flex;justify-content:center;gap:14px;margin:16px 0 14px;}
+.footer-links a{
+  width:46px;height:46px;border-radius:50%;background:var(--bg);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--navy);text-decoration:none;font-size:19px;
+}
+.linkbtn{background:none;border:none;color:var(--muted);text-decoration:underline;font-size:13px;padding:6px 8px;}
+.linkbtn.demo{color:var(--navy);font-weight:700;}
+
+/* OVERLAYS */
+.overlay{
+  position:fixed;inset:0;background:var(--bg);z-index:200;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch;
+}
+.overlay.open{display:block;}
+.ov-top{
+  position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--border);
+  padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;display:flex;align-items:center;gap:14px;z-index:10;
+}
+.ov-close{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;color:var(--navy);flex-shrink:0;font-size:16px;
+}
+.ov-title{font-size:16px;font-weight:800;color:var(--navy);}
+.progress-wrap{flex:1;}
+.progress-track{height:6px;background:var(--border);border-radius:99px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--accent);width:16.6%;transition:width .3s;}
+.progress-label{font-size:12px;color:var(--muted);margin-top:5px;font-weight:700;font-variant-numeric:tabular-nums;}
+.ov-body{max-width:520px;margin:0 auto;padding:26px 16px calc(120px + env(safe-area-inset-bottom,0px));}
+
+.quiz-step{display:none;animation:fadein .25s ease;}
+.quiz-step.active{display:block;}
+@keyframes fadein{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+@media(prefers-reduced-motion:reduce){.quiz-step{animation:none;}.progress-fill{transition:none;}}
+
+.step-title{font-size:22px;font-weight:800;color:var(--navy);margin:0 0 6px;}
+.step-title:focus{outline:none;}
+.step-sub{font-size:15px;color:var(--muted);margin:0 0 20px;}
+
+.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.option-grid.single-col{grid-template-columns:1fr;}
+.opt{position:relative;}
+.opt input{position:absolute;opacity:0;width:0;height:0;}
+.opt label{
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;justify-content:center;
+  border:2px solid var(--border);border-radius:var(--radius);padding:16px 14px;min-height:100px;
+  background:var(--surface);cursor:pointer;transition:border-color .2s,background .2s;
+}
+.opt label .ic{font-size:24px;color:var(--navy);transition:color .2s;}
+.opt label .t{font-size:16px;font-weight:700;color:var(--text);line-height:1.3;}
+.opt label .s{font-size:13px;color:var(--muted);font-weight:600;margin-top:-6px;}
+.opt input:checked + label{border-color:var(--accent);background:var(--accent-soft);}
+.opt input:checked + label .ic{color:var(--accent-dark);}
+.opt input:focus-visible + label{outline:3px solid var(--navy);outline-offset:2px;}
+.opt.wide label{flex-direction:row;align-items:center;min-height:auto;padding:16px;gap:14px;}
+.opt.wide label .ic{font-size:22px;}
+.opt.wide label .txt{display:flex;flex-direction:column;gap:2px;}
+.opt.wide label .s{margin-top:0;}
+.option-grid.is-invalid .opt label{border-color:#E6B8AD;}
+
+textarea,input[type=text],input[type=tel]{
+  width:100%;font-size:16px;padding:15px 14px;border-radius:12px;border:1.5px solid var(--border);
+  background:var(--surface);color:var(--text);
+}
+textarea{min-height:120px;resize:vertical;}
+textarea:focus,input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(21,36,55,.12);}
+.field{margin-bottom:18px;}
+.field.is-invalid textarea,.field.is-invalid input{border-color:var(--danger);}
+label.field-label{display:block;font-size:14px;font-weight:800;color:var(--navy);margin:0 0 8px;}
+.hint{font-size:13px;color:var(--muted);margin:6px 0 0;}
+
+.upload-box{
+  width:100%;border:1.5px dashed #CFCBC3;border-radius:12px;padding:20px 16px;text-align:center;
+  background:var(--surface);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--text);
+}
+.upload-box .ic{font-size:26px;color:var(--accent);}
+.upload-box b{font-size:15px;font-weight:800;color:var(--navy);}
+.upload-box span{font-size:13px;color:var(--muted);}
+.file-list{margin-top:10px;display:flex;flex-direction:column;gap:8px;}
+.file-chip{
+  display:flex;align-items:center;gap:10px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;padding:8px 8px 8px 10px;font-size:14px;color:var(--text);
+}
+.file-chip .thumb{width:40px;height:40px;border-radius:8px;object-fit:cover;background:var(--bg);flex-shrink:0;}
+.file-chip .ph{width:40px;height:40px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;flex-shrink:0;}
+.file-chip .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;}
+.file-chip .sz{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.file-chip .rm{width:34px;height:34px;border-radius:50%;border:none;background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:14px;}
+
+.err{
+  display:flex;gap:10px;align-items:flex-start;color:var(--danger);background:var(--danger-soft);
+  border-radius:10px;padding:11px 13px;font-size:14px;font-weight:700;margin-top:16px;line-height:1.4;
+}
+.err .ic{font-size:17px;margin-top:2px;}
+
+.consent{display:flex;gap:12px;align-items:flex-start;padding:4px 2px;font-size:14px;color:var(--text);line-height:1.45;}
+.consent input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--accent);flex-shrink:0;}
+.consent button{background:none;border:none;padding:0;color:var(--accent-dark);text-decoration:underline;font-size:14px;font-weight:700;}
+.consent.is-invalid{color:var(--danger);}
+
+.review{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;margin:0 0 20px;}
+.review h3{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px;font-weight:800;}
+.review-row{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;
+  background:none;border:none;border-top:1px solid var(--border);padding:11px 0;text-align:left;font-size:14px;color:var(--text);
+}
+.review-row:first-of-type{border-top:none;}
+.review-row .k{color:var(--muted);font-weight:600;flex-shrink:0;}
+.review-row .v{font-weight:700;text-align:right;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere;}
+.review-row .e{color:var(--accent-dark);font-size:12px;font-weight:800;flex-shrink:0;}
+
+.ov-nav{
+  position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;z-index:20;
+}
+.ov-nav .inner{display:flex;gap:12px;width:100%;max-width:520px;margin:0 auto;}
+.btn{
+  flex:1;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:800;
+  transition:transform .15s,background .2s;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+}
+.btn:active{transform:scale(.98);}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:var(--accent-dark);}
+.btn-primary[disabled]{background:#D8B7A8;cursor:wait;}
+.btn-secondary{background:var(--bg);color:var(--navy);border:1.5px solid var(--border);flex:0 0 64px;padding:16px 0;}
+.btn-ghost{background:var(--surface);color:var(--navy);border:1.5px solid var(--border);width:100%;}
+.btn-wa{background:#25D366;color:#fff;width:100%;text-decoration:none;}
+.spin{width:18px;height:18px;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* SUCCESS */
+.success-wrap{text-align:center;padding-top:6px;}
+.success-icon{
+  width:76px;height:76px;border-radius:50%;background:var(--ok-soft);color:var(--ok);
+  display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 18px;
+}
+.success-icon.fail{background:var(--danger-soft);color:var(--danger);}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.req-id{display:inline-block;background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:6px 14px;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;margin-bottom:14px;}
+.summary-box{
+  text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px 16px;margin:18px 0;font-size:14px;color:var(--text);white-space:pre-wrap;line-height:1.6;overflow-wrap:anywhere;
+}
+.stack{display:flex;flex-direction:column;gap:10px;}
+.proto-note{
+  display:flex;gap:10px;align-items:flex-start;margin-top:22px;padding:12px 14px;border-radius:10px;
+  background:#EEF1F5;color:#3C4858;font-size:13px;line-height:1.45;text-align:left;
+}
+.proto-note .ic{font-size:16px;margin-top:2px;flex-shrink:0;}
+
+/* ADMIN (прототип) */
+.req-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px;}
+.req-card .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap;}
+.req-card .id{font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;}
+.req-card .ts{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.req-card .meta{font-size:14px;color:var(--text);margin:6px 0 10px;}
+.req-card .meta b{color:var(--navy);}
+.req-card details summary{cursor:pointer;font-size:13px;font-weight:800;color:var(--accent-dark);list-style:none;}
+.req-card details summary::-webkit-details-marker{display:none;}
+.req-card pre{white-space:pre-wrap;font-family:inherit;font-size:13px;background:var(--bg);border-radius:10px;padding:10px 12px;margin:10px 0 0;line-height:1.55;overflow-wrap:anywhere;}
+.empty{text-align:center;color:var(--muted);padding:40px 10px;font-size:15px;}
+.empty .ic{font-size:36px;color:#CFCBC3;display:block;margin:0 auto 12px;}
+.danger-row{display:flex;gap:10px;margin-top:8px;}
+.btn-danger{background:var(--danger-soft);color:var(--danger);border:1.5px solid #F0C9C2;}
+
+/* POLICY */
+.policy{font-size:15px;line-height:1.6;}
+.policy h2{font-size:20px;color:var(--navy);margin:0 0 14px;}
+.policy h3{font-size:16px;color:var(--navy);margin:20px 0 6px;}
+.policy p,.policy li{margin:0 0 8px;}
+.policy mark{background:#FFF2B3;padding:0 3px;border-radius:3px;}
+
+@media(min-width:700px){
+  .hero{padding-top:56px;}
+  .hero h1{font-size:36px;}
+  .cta-btn{width:auto;}
+  .site-header{padding:16px 24px;}
+}
+</style>
+</head>
+<body>
+<!-- Иконки: Font Awesome Free 7.0.1 (https://fontawesome.com), лицензия CC BY 4.0. Встроены, чтобы страница не зависела от внешних загрузок. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-telegram" viewBox="0 0 512 512"><path d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/></symbol>
+<symbol id="i-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
+<symbol id="i-copy" viewBox="0 0 448 512"><path d="M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l133.5 0c4.2 0 8.3 1.7 11.3 4.7l58.5 58.5c3 3 4.7 7.1 4.7 11.3L400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-197.5c0-17-6.7-33.3-18.7-45.3L370.7 18.7C358.7 6.7 342.5 0 325.5 0L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-16-48 0 0 16c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l16 0 0-48-16 0z"/></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 512 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 105.4-105.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z"/></symbol>
+<symbol id="i-box-open" viewBox="0 0 640 512"><path d="M560.3 237.2c10.4 11.8 28.3 14.4 41.8 5.5 14.7-9.8 18.7-29.7 8.9-44.4l-48-72c-2.8-4.2-6.6-7.7-11.1-10.2L351.4 4.7c-19.3-10.7-42.8-10.7-62.2 0L88.8 116c-5.4 3-9.7 7.4-12.6 12.8L27.7 218.7c-12.6 23.4-3.8 52.5 19.6 65.1l33 17.7 0 53.3c0 23 12.4 44.3 32.4 55.7l176 99.7c19.6 11.1 43.5 11.1 63.1 0l176-99.7c20.1-11.4 32.4-32.6 32.4-55.7l0-117.5zm-240-9.8L170.2 144 320.3 60.6 470.4 144 320.3 227.4zm-41.5 50.2l-21.3 46.2-165.8-88.8 25.4-47.2 161.7 89.8z"/></symbol>
+<symbol id="i-building" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0zM176 352l32 0c17.7 0 32 14.3 32 32l0 80-96 0 0-80c0-17.7 14.3-32 32-32zM96 112c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM240 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM96 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm144-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z"/></symbol>
+<symbol id="i-car-side" viewBox="0 0 640 512"><path d="M147 106.7l-29.8 85.3 122.9 0 0-96-77.9 0c-6.8 0-12.9 4.3-15.1 10.7zM48.6 193.9L86.5 85.6C97.8 53.5 128.1 32 162.1 32L360 32c25.2 0 48.9 11.9 64 32l96.2 128.3C587.1 196.5 640 252.1 640 320l0 16c0 35.3-28.7 64-64 64l-16.4 0c-4 44.9-41.7 80-87.6 80s-83.6-35.1-87.6-80l-144.7 0c-4 44.9-41.7 80-87.6 80s-83.6-35.1-87.6-80l-.4 0c-35.3 0-64-28.7-64-64l0-80c0-30.1 20.7-55.3 48.6-62.1zM440 192l-67.2-89.6c-3-4-7.8-6.4-12.8-6.4l-72 0 0 96 152 0zM152 432a40 40 0 1 0 0-80 40 40 0 1 0 0 80zm360-40a40 40 0 1 0 -80 0 40 40 0 1 0 80 0z"/></symbol>
+<symbol id="i-check" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z"/></symbol>
+<symbol id="i-circle-check" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z"/></symbol>
+<symbol id="i-circle-dot" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-352a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></symbol>
+<symbol id="i-circle-exclamation" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zm0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"/></symbol>
+<symbol id="i-clipboard-list" viewBox="0 0 384 512"><path d="M311.4 32l8.6 0c35.3 0 64 28.7 64 64l0 352c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l8.6 0C83.6 12.9 104.3 0 128 0L256 0c23.7 0 44.4 12.9 55.4 32zM248 112c13.3 0 24-10.7 24-24s-10.7-24-24-24L136 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l112 0zM128 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm32 0c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0c-13.3 0-24 10.7-24 24zm0 128c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0c-13.3 0-24 10.7-24 24zM96 416a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></symbol>
+<symbol id="i-cloud-arrow-up" viewBox="0 0 576 512"><path d="M144 480c-79.5 0-144-64.5-144-144 0-63.4 41-117.2 97.9-136.5-1.3-7.7-1.9-15.5-1.9-23.5 0-79.5 64.5-144 144-144 55.4 0 103.5 31.3 127.6 77.1 14.2-8.3 30.8-13.1 48.4-13.1 53 0 96 43 96 96 0 15.7-3.8 30.6-10.5 43.7 44 20.3 74.5 64.7 74.5 116.3 0 70.7-57.3 128-128 128l-304 0zM305 191c-9.4-9.4-24.6-9.4-33.9 0l-72 72c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l31-31 0 102.1c0 13.3 10.7 24 24 24s24-10.7 24-24l0-102.1 31 31c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-72-72z"/></symbol>
+<symbol id="i-ellipsis" viewBox="0 0 448 512"><path d="M0 256a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm168 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm224-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></symbol>
+<symbol id="i-file-lines" viewBox="0 0 384 512"><path d="M0 64C0 28.7 28.7 0 64 0L213.5 0c17 0 33.3 6.7 45.3 18.7L365.3 125.3c12 12 18.7 28.3 18.7 45.3L384 448c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64zm208-5.5l0 93.5c0 13.3 10.7 24 24 24L325.5 176 208 58.5zM120 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z"/></symbol>
+<symbol id="i-gas-pump" viewBox="0 0 512 512"><path d="M32 64C32 28.7 60.7 0 96 0L256 0c35.3 0 64 28.7 64 64l0 192 8 0c48.6 0 88 39.4 88 88l0 32c0 13.3 10.7 24 24 24s24-10.7 24-24l0-154c-27.6-7.1-48-32.2-48-62l0-59.5-25.8-28.3c-8.9-9.8-8.2-25 1.6-33.9s25-8.2 33.9 1.6l71.7 78.8c9.4 10.3 14.6 23.7 14.6 37.7L512 376c0 39.8-32.2 72-72 72s-72-32.2-72-72l0-32c0-22.1-17.9-40-40-40l-8 0 0 161.4c9.3 3.3 16 12.2 16 22.6 0 13.3-10.7 24-24 24L40 512c-13.3 0-24-10.7-24-24 0-10.5 6.7-19.3 16-22.6L32 64zM96 80l0 96c0 8.8 7.2 16 16 16l128 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16L112 64c-8.8 0-16 7.2-16 16z"/></symbol>
+<symbol id="i-handshake" viewBox="0 0 576 512"><path d="M268.9 85.2L152.3 214.8c-4.6 5.1-4.4 13 .5 17.9 30.5 30.5 80 30.5 110.5 0l31.8-31.8c4.2-4.2 9.5-6.5 14.9-6.9 6.8-.6 13.8 1.7 19 6.9L505.6 376 576 320 576 32 464 96 440.2 80.1C424.4 69.6 405.9 64 386.9 64l-70.4 0c-1.1 0-2.3 0-3.4 .1-16.9 .9-32.8 8.5-44.2 21.1zM116.6 182.7L223.4 64 183.8 64c-25.5 0-49.9 10.1-67.9 28.1L112 96 0 32 0 320 156.4 450.3c23 19.2 52 29.7 81.9 29.7l15.7 0-7-7c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l41 41 9 0c19.1 0 37.8-4.3 54.8-12.3L359 441c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l32 32 17.5-17.5c8.9-8.9 11.5-21.8 7.6-33.1l-137.9-136.8-14.9 14.9c-49.3 49.3-129.1 49.3-178.4 0-23-23-23.9-59.9-2.2-84z"/></symbol>
+<symbol id="i-image" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm64 80a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM272 224c8.4 0 16.1 4.4 20.5 11.5l88 144c4.5 7.4 4.7 16.7 .5 24.3S368.7 416 360 416L88 416c-8.9 0-17.2-5-21.3-12.9s-3.5-17.5 1.6-24.8l56-80c4.5-6.4 11.8-10.2 19.7-10.2s15.2 3.8 19.7 10.2l26.4 37.8 61.4-100.5c4.4-7.1 12.1-11.5 20.5-11.5z"/></symbol>
+<symbol id="i-inbox" viewBox="0 0 512 512"><path d="M91.8 32C59.9 32 32.9 55.4 28.4 86.9L.6 281.2c-.4 3-.6 6-.6 9.1L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-125.7c0-3-.2-6.1-.6-9.1L483.6 86.9C479.1 55.4 452.1 32 420.2 32L91.8 32zm0 64l328.5 0 27.4 192-59.9 0c-12.1 0-23.2 6.8-28.6 17.7l-14.3 28.6c-5.4 10.8-16.5 17.7-28.6 17.7l-120.4 0c-12.1 0-23.2-6.8-28.6-17.7l-14.3-28.6c-5.4-10.8-16.5-17.7-28.6-17.7L64.3 288 91.8 96z"/></symbol>
+<symbol id="i-list-check" viewBox="0 0 512 512"><path d="M133.8 36.3c10.9 7.6 13.5 22.6 5.9 33.4l-56 80c-4.1 5.8-10.5 9.5-17.6 10.1S52 158 47 153L7 113C-2.3 103.6-2.3 88.4 7 79S31.6 69.7 41 79l19.8 19.8 39.6-56.6c7.6-10.9 22.6-13.5 33.4-5.9zm0 160c10.9 7.6 13.5 22.6 5.9 33.4l-56 80c-4.1 5.8-10.5 9.5-17.6 10.1S52 318 47 313L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l19.8 19.8 39.6-56.6c7.6-10.9 22.6-13.5 33.4-5.9zM224 96c0-17.7 14.3-32 32-32l224 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-224 0c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32l224 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-224 0c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32l288 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-288 0c-17.7 0-32-14.3-32-32zM64 376a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></symbol>
+<symbol id="i-location-dot" viewBox="0 0 384 512"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></symbol>
+<symbol id="i-magnifying-glass" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></symbol>
+<symbol id="i-paperclip" viewBox="0 0 512 512"><path d="M224.6 12.8c56.2-56.2 147.4-56.2 203.6 0s56.2 147.4 0 203.6l-164 164c-34.4 34.4-90.1 34.4-124.5 0s-34.4-90.1 0-124.5L292.5 103.3c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L185 301.3c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l164-164c31.2-31.2 31.2-81.9 0-113.1s-81.9-31.2-113.1 0l-164 164c-53.1 53.1-53.1 139.2 0 192.3s139.2 53.1 192.3 0L428.3 284.3c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L343.4 459.6c-78.1 78.1-204.7 78.1-282.8 0s-78.1-204.7 0-282.8l164-164z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></symbol>
+<symbol id="i-road" viewBox="0 0 512 512"><path d="M223.9 32l-76.2 0c-29.4 0-55.1 20.1-62.1 48.6L1.4 420.5C-6.1 450.7 16.8 480 48 480l175.9 0 0-64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 64 176.1 0c31.2 0 54.1-29.3 46.6-59.5L426.5 80.6C419.4 52.1 393.8 32 364.3 32l-76.4 0 0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64zm64 192l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></symbol>
+<symbol id="i-rotate-right" viewBox="0 0 512 512"><path d="M488 192l-144 0c-9.7 0-18.5-5.8-22.2-14.8s-1.7-19.3 5.2-26.2l46.7-46.7c-75.3-58.6-184.3-53.3-253.5 15.9-75 75-75 196.5 0 271.5s196.5 75 271.5 0c8.2-8.2 15.5-16.9 21.9-26.1 10.1-14.5 30.1-18 44.6-7.9s18 30.1 7.9 44.6c-8.5 12.2-18.2 23.8-29.1 34.7-100 100-262.1 100-362 0S-25 175 75 75c94.3-94.3 243.7-99.6 344.3-16.2L471 7c6.9-6.9 17.2-8.9 26.2-5.2S512 14.3 512 24l0 144c0 13.3-10.7 24-24 24z"/></symbol>
+<symbol id="i-screwdriver-wrench" viewBox="0 0 576 512"><path d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2L209.9 70.5c8.9 5.9 14.2 15.9 14.2 26.6l0 49.6 90.8 90.8c33.3-15 73.9-8.9 101.2 18.5L542.2 382.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2l-90.8-90.8-49.6 0c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2L70.8-6.7zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1L388.8 91.3c-3 3-4.7 7.1-4.7 11.3l0 41.4c0 8.8 7.2 16 16 16l41.4 0c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1l-49.1-49.1c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8 0-29.7-.2-5c-.8-12.4-4.4-24.3-10.5-34.9 29.4-35 73.4-57.2 122.7-57.3z"/></symbol>
+<symbol id="i-ship" viewBox="0 0 640 512"><path d="M272 0c-26.5 0-48 21.5-48 48l0 16-16 0c-44.2 0-80 35.8-80 80l0 108.8-21.6 8.6c-14.8 5.9-22.5 22.4-17.4 37.5 10.4 31.3 26.8 59.3 47.7 83.1 20.1-9.2 41.7-13.9 63.3-14 33.1-.2 66.3 10.2 94.4 31.4l1.6 1.2 0-215-104 41.6 0-83.2c0-8.8 7.2-16 16-16l224 0c8.8 0 16 7.2 16 16l0 83.2-104-41.6 0 215 1.6-1.2c27.5-20.7 59.9-31.2 92.4-31.4 22.3-.1 44.6 4.5 65.3 14 20.9-23.7 37.3-51.8 47.7-83.1 5-15.2-2.6-31.6-17.4-37.5L512 252.8 512 144c0-44.2-35.8-80-80-80l-16 0 0-16c0-26.5-21.5-48-48-48L272 0zM403.4 476.1c21.3-16.1 49.9-16.1 71.2 0 19 14.4 41.9 28.2 67.2 33.3 26.5 5.4 54.3 .8 80.7-19.1 10.6-8 12.7-23 4.7-33.6s-23-12.7-33.6-4.7c-14.9 11.2-28.6 13.1-42.3 10.3-14.9-3-30.9-11.9-47.8-24.6-38.4-29-90.5-29-129 0-24 18.1-40.7 26.3-54.5 26.3s-30.5-8.2-54.5-26.3c-38.4-29-90.5-29-129 0-21.6 16.3-41.3 25.8-58.9 25.7-9.6-.1-19.9-3-31.2-11.5-10.6-8-25.6-5.9-33.6 4.7S7 482.3 17.6 490.3c19.1 14.4 39.4 21 59.8 21.1 33.9 .2 64.3-17.4 88.1-35.3 21.3-16.1 49.9-16.1 71.2 0 24.2 18.3 52.3 35.9 83.4 35.9s59.1-17.7 83.4-35.9z"/></symbol>
+<symbol id="i-trash" viewBox="0 0 448 512"><path d="M136.7 5.9L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-8.7-26.1C306.9-7.2 294.7-16 280.9-16L167.1-16c-13.8 0-26 8.8-30.4 21.9zM416 144L32 144 53.1 467.1C54.7 492.4 75.7 512 101 512L347 512c25.3 0 46.3-19.6 47.9-44.9L416 144z"/></symbol>
+<symbol id="i-trowel-bricks" viewBox="0 0 512 512"><path d="M224 32c0-11.5-6.2-22.2-16.2-27.8s-22.3-5.5-32.2 .4l-160 96C5.9 106.3 0 116.8 0 128s5.9 21.7 15.5 27.4l160 96c9.9 5.9 22.2 6.1 32.2 .4S224 235.5 224 224l0-64 256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-256 0 0-64zm96 192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l160 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-160 0zM0 416l0 64c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-96 0c-17.7 0-32 14.3-32 32zm224-32c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l256 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-256 0z"/></symbol>
+<symbol id="i-truck-fast" viewBox="0 0 640 512"><path d="M64 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L621.3 192c12 12 18.7 28.3 18.7 45.3L640 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-3.3 0c-35.3 0-64-28.7-64-64l0-48-40 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 144c-13.3 0-24-10.7-24-24S10.7 96 24 96l40 0zM576 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM256 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></symbol>
+<symbol id="i-truck" viewBox="0 0 576 512"><path d="M0 96C0 60.7 28.7 32 64 32l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L557.3 192c12 12 18.7 28.3 18.7 45.3L576 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64L64 448c-35.3 0-64-28.7-64-64L0 96zM512 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM192 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></symbol>
+<symbol id="i-user" viewBox="0 0 448 512"><path d="M224 248a120 120 0 1 0 0-240 120 120 0 1 0 0 240zm-29.7 56C95.8 304 16 383.8 16 482.3 16 498.7 29.3 512 45.7 512l356.6 0c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3l-59.4 0z"/></symbol>
+<symbol id="i-warehouse" viewBox="0 0 576 512"><path d="M0 142.1L0 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-240c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32l0 240c0 17.7 14.3 32 32 32s32-14.3 32-32l0-337.9c0-27.5-17.6-52-43.8-60.7L303.2 5.1c-9.9-3.3-20.5-3.3-30.4 0L43.8 81.4C17.6 90.1 0 114.6 0 142.1zM464 256l-352 0 0 64 352 0 0-64zM112 416l352 0 0-64-352 0 0 64zm352 32l-352 0 0 64 352 0 0-64z"/></symbol>
+<symbol id="i-xmark" viewBox="0 0 384 512"><path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="logo">
+    <div class="logo-icon"><svg class="ic"><use href="#i-truck-fast"/></svg></div>
+    <div class="logo-text">
+      <b>Поиск и Снабжение</b>
+      <span>Якутск · доставка по РС(Я)</span>
+    </div>
+  </div>
+  <a class="header-phone" id="headerPhone" href="tel:+79141032966"><svg class="ic"><use href="#i-phone"/></svg><span class="lbl">Позвонить</span> <span class="num">+7 914 103 29 66</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="eyebrow"><svg class="ic"><use href="#i-location-dot"/></svg> Из Якутска в любой улус Якутии</span>
+    <h1>Служба комплексного снабжения «Поиск и&nbsp;Снабжение»<small>г. Якутск</small></h1>
+    <p class="lead">Найдём, проверим по чек-листу и отправим любой товар из Якутска прямо в ваш улус. Вам не нужно ехать в город самим.</p>
+    <button class="cta-btn" id="openQuizBtn" type="button"><svg class="ic"><use href="#i-clipboard-list"/></svg> Рассчитать стоимость и оставить заявку</button>
+    <p class="cta-note">Заявка занимает 2 минуты. Ответим в течение 15 минут в рабочее время.</p>
+  </section>
+
+  <div class="features">
+    <div class="feature-card"><svg class="ic"><use href="#i-gas-pump"/></svg><h3>Экономия на ГСМ</h3><p>Не тратьте топливо и день на поездку в Якутск. Мы купим и отправим.</p></div>
+    <div class="feature-card"><svg class="ic"><use href="#i-list-check"/></svg><h3>Проверка по чек-листу</h3><p>Перед отправкой сверяем артикул, комплектность и целостность товара.</p></div>
+    <div class="feature-card"><svg class="ic"><use href="#i-warehouse"/></svg><h3>Склад консолидации</h3><p>Собираем покупки из разных магазинов в одну отправку.</p></div>
+    <div class="feature-card"><svg class="ic"><use href="#i-handshake"/></svg><h3>Физлица и предприятия</h3><p>Работаем с частными клиентами и организациями, даём документы для B2B.</p></div>
+  </div>
+
+  <section class="how">
+    <h2>Как это работает</h2>
+    <div class="steps">
+      <div class="step-row"><div class="step-num">1</div><div><b>Вы оставляете заявку</b><p>Категория, описание или артикул, фото, направление доставки.</p></div></div>
+      <div class="step-row"><div class="step-num">2</div><div><b>Мы ищем и проверяем</b><p>Находим товар в Якутске, согласуем цену и сроки, проверяем по чек-листу.</p></div></div>
+      <div class="step-row"><div class="step-num">3</div><div><b>Отправляем в ваш улус</b><p>Со склада консолидации ближайшим рейсом по вашему тракту.</p></div></div>
+    </div>
+  </section>
+
+  <section class="cats-preview">
+    <h2>С чем работаем</h2>
+    <div class="cats-row">
+      <div class="cat-chip"><svg class="ic"><use href="#i-car-side"/></svg><span>Автозапчасти</span></div>
+      <div class="cat-chip"><svg class="ic"><use href="#i-circle-dot"/></svg><span>Шины и диски</span></div>
+      <div class="cat-chip"><svg class="ic"><use href="#i-ship"/></svg><span>Водно-моторная техника</span></div>
+      <div class="cat-chip"><svg class="ic"><use href="#i-screwdriver-wrench"/></svg><span>Инструменты и оборудование</span></div>
+      <div class="cat-chip"><svg class="ic"><use href="#i-trowel-bricks"/></svg><span>Стройматериалы</span></div>
+      <div class="cat-chip"><svg class="ic"><use href="#i-ellipsis"/></svg><span>Другое</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="req"><span id="footerCompany">ИП [Фамилия Имя Отчество]</span> · ИНН <span id="footerInn">[000000000000]</span> · ОГРНИП <span id="footerOgrn">[000000000000000]</span></p>
+  <p>г. Якутск · работаем по всей Республике Саха (Якутия)</p>
+  <div class="footer-links">
+    <a id="footerWa" href="https://wa.me/79141032966" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg class="ic"><use href="#i-whatsapp"/></svg></a>
+    <a id="footerTel" href="tel:+79141032966" aria-label="Позвонить"><svg class="ic"><use href="#i-phone"/></svg></a>
+  </div>
+  <p><button class="linkbtn" type="button" id="policyLink">Политика обработки персональных данных</button></p>
+  <p><button class="linkbtn demo" type="button" id="adminLink"><svg class="ic"><use href="#i-inbox"/></svg> Принятые заявки (прототип)</button></p>
+</footer>
+
+<!-- ===== КВИЗ ===== -->
+<div class="overlay" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="progressLabel">
+  <form id="quizForm" novalidate>
+    <div class="ov-top">
+      <button class="ov-close" type="button" id="closeQuizBtn" aria-label="Закрыть"><svg class="ic"><use href="#i-xmark"/></svg></button>
+      <div class="progress-wrap">
+        <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Шаг 1 из 6</div>
+      </div>
+    </div>
+
+    <div class="ov-body">
+      <!-- Шаг 1 -->
+      <section class="quiz-step active" data-step="1">
+        <h2 class="step-title">Что нужно найти?</h2>
+        <p class="step-sub">Выберите категорию товара</p>
+        <div class="option-grid" id="grid1">
+          <div class="opt"><input type="radio" name="category" id="cat1" value="Автозапчасти"><label for="cat1"><svg class="ic"><use href="#i-car-side"/></svg><span class="t">Автозапчасти</span></label></div>
+          <div class="opt"><input type="radio" name="category" id="cat2" value="Шины и диски"><label for="cat2"><svg class="ic"><use href="#i-circle-dot"/></svg><span class="t">Шины и диски</span></label></div>
+          <div class="opt"><input type="radio" name="category" id="cat3" value="Водно-моторная техника"><label for="cat3"><svg class="ic"><use href="#i-ship"/></svg><span class="t">Водно-моторная техника</span></label></div>
+          <div class="opt"><input type="radio" name="category" id="cat4" value="Инструменты и оборудование"><label for="cat4"><svg class="ic"><use href="#i-screwdriver-wrench"/></svg><span class="t">Инструменты и оборудование</span></label></div>
+          <div class="opt"><input type="radio" name="category" id="cat5" value="Стройматериалы"><label for="cat5"><svg class="ic"><use href="#i-trowel-bricks"/></svg><span class="t">Стройматериалы</span></label></div>
+          <div class="opt"><input type="radio" name="category" id="cat6" value="Другое"><label for="cat6"><svg class="ic"><use href="#i-ellipsis"/></svg><span class="t">Другое</span></label></div>
+        </div>
+        <p class="err" id="err1" hidden><svg class="ic"><use href="#i-circle-exclamation"/></svg><span></span></p>
+      </section>
+
+      <!-- Шаг 2 -->
+      <section class="quiz-step" data-step="2">
+        <h2 class="step-title">Опишите товар</h2>
+        <p class="step-sub">Чем подробнее, тем точнее и быстрее расчёт</p>
+        <div class="field" id="fieldDesc">
+          <label class="field-label" for="descField">Напишите название, модель или артикул товара</label>
+          <textarea id="descField" name="desc" placeholder="Например: тормозные колодки на Toyota Land Cruiser 200, передние, 2 комплекта"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label" for="fileInput">Прикрепите фото или схему детали (если есть)</label>
+          <button class="upload-box" type="button" id="uploadBox">
+            <svg class="ic"><use href="#i-cloud-arrow-up"/></svg>
+            <b>Выбрать фото или файл</b>
+            <span>До 5 файлов, каждый до 10 МБ</span>
+          </button>
+          <input type="file" id="fileInput" multiple accept="image/*,.pdf" hidden>
+          <div class="file-list" id="fileList"></div>
+        </div>
+        <p class="err" id="err2" hidden><svg class="ic"><use href="#i-circle-exclamation"/></svg><span></span></p>
+      </section>
+
+      <!-- Шаг 3 -->
+      <section class="quiz-step" data-step="3">
+        <h2 class="step-title">Как срочно нужен товар?</h2>
+        <p class="step-sub">От срочности зависит стоимость доставки</p>
+        <div class="option-grid single-col" id="grid3">
+          <div class="opt wide"><input type="radio" name="urgency" id="urg1" value="Срочно (Экспресс — 1 день)"><label for="urg1"><svg class="ic"><use href="#i-bolt"/></svg><span class="txt"><span class="t">Срочно</span><span class="s">Экспресс — 1 день</span></span></label></div>
+          <div class="opt wide"><input type="radio" name="urgency" id="urg2" value="Могу подождать (Стандарт — 1–2 дня)"><label for="urg2"><svg class="ic"><use href="#i-truck"/></svg><span class="txt"><span class="t">Могу подождать</span><span class="s">Стандарт — 1–2 дня</span></span></label></div>
+        </div>
+        <p class="err" id="err3" hidden><svg class="ic"><use href="#i-circle-exclamation"/></svg><span></span></p>
+      </section>
+
+      <!-- Шаг 4 -->
+      <section class="quiz-step" data-step="4">
+        <h2 class="step-title">Куда доставить?</h2>
+        <p class="step-sub">Выберите направление</p>
+        <div class="option-grid single-col" id="grid4">
+          <div class="opt wide"><input type="radio" name="direction" id="dir1" value="Вилюйский тракт"><label for="dir1"><svg class="ic"><use href="#i-road"/></svg><span class="t">Вилюйский тракт</span></label></div>
+          <div class="opt wide"><input type="radio" name="direction" id="dir2" value="Трасса «Колыма»"><label for="dir2"><svg class="ic"><use href="#i-road"/></svg><span class="t">Трасса «Колыма»</span></label></div>
+          <div class="opt wide"><input type="radio" name="direction" id="dir3" value="Заречные улусы"><label for="dir3"><svg class="ic"><use href="#i-road"/></svg><span class="t">Заречные улусы</span></label></div>
+          <div class="opt wide"><input type="radio" name="direction" id="dir4" value="Намский / Южный / Северный тракты"><label for="dir4"><svg class="ic"><use href="#i-road"/></svg><span class="t">Намский / Южный / Северный тракты</span></label></div>
+        </div>
+        <div class="field" style="margin-top:18px">
+          <label class="field-label" for="townField">Населённый пункт</label>
+          <input type="text" id="townField" name="town" placeholder="Например: Нюрба, Хандыга, Амга" autocomplete="address-level2">
+          <p class="hint">Необязательно, но поможет точнее рассчитать стоимость</p>
+        </div>
+        <p class="err" id="err4" hidden><svg class="ic"><use href="#i-circle-exclamation"/></svg><span></span></p>
+      </section>
+
+      <!-- Шаг 5 -->
+      <section class="quiz-step" data-step="5">
+        <h2 class="step-title">Кто оформляет заявку?</h2>
+        <p class="step-sub">Для организаций подготовим документы</p>
+        <div class="option-grid" id="grid5">
+          <div class="opt"><input type="radio" name="clientType" id="ct1" value="Частное лицо"><label for="ct1"><svg class="ic"><use href="#i-user"/></svg><span class="t">Частное лицо</span></label></div>
+          <div class="opt"><input type="radio" name="clientType" id="ct2" value="Предприятие / Организация (B2B)"><label for="ct2"><svg class="ic"><use href="#i-building"/></svg><span class="t">Предприятие или организация</span></label></div>
+        </div>
+        <p class="err" id="err5" hidden><svg class="ic"><use href="#i-circle-exclamation"/></svg><span></span></p>
+      </section>
+
+      <!-- Шаг 6 -->
+      <section class="quiz-step" data-step="6">
+        <h2 class="step-title">Контактные данные</h2>
+        <p class="step-sub">Свяжемся с вами, чтобы уточнить детали и назвать стоимость</p>
+        <div class="review" id="review">
+          <h3>Ваша заявка</h3>
+          <div id="reviewRows"></div>
+        </div>
+        <div class="field" id="fieldName">
+          <label class="field-label" for="nameField" id="nameLabel">ФИО</label>
+          <input type="text" id="nameField" name="name" placeholder="Иванов Иван Иванович" autocomplete="name">
+        </div>
+        <div class="field" id="fieldPhone">
+          <label class="field-label" for="phoneField">Номер телефона</label>
+          <input type="tel" id="phoneField" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel">
+          <p class="hint">Перезвоним или напишем в WhatsApp на этот номер</p>
+        </div>
+        <input type="text" id="websiteField" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent" id="consentWrap">
+          <input type="checkbox" id="consentField">
+          <span>Согласен(на) на обработку персональных данных в соответствии с <button type="button" id="policyLink2">политикой конфиденциальности</button></span>
+        </label>
+        <p class="err" id="err6" hidden><svg class="ic"><use href="#i-circle-exclamation"/></svg><span></span></p>
+      </section>
+
+      <!-- Готово -->
+      <section class="quiz-step" data-step="done">
+        <div class="success-wrap">
+          <div class="success-icon"><svg class="ic"><use href="#i-check"/></svg></div>
+          <h2 class="step-title">Заявка принята</h2>
+          <div class="req-id" id="reqId">№ ПС-000000-00</div>
+          <p class="step-sub">Перезвоним в течение 15 минут в рабочее время. Если удобнее переписка, продублируйте заявку в WhatsApp, там же можно отправить фото.</p>
+        </div>
+        <div class="summary-box" id="summaryBox"></div>
+        <div class="stack">
+          <a class="btn btn-wa" id="sendWaBtn" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Продублировать в WhatsApp</a>
+          <button class="btn btn-ghost" type="button" id="copyBtn"><svg class="ic"><use href="#i-copy"/></svg> Скопировать текст заявки</button>
+          <button class="btn btn-ghost" type="button" id="newReqBtn"><svg class="ic"><use href="#i-rotate-right"/></svg> Новая заявка</button>
+        </div>
+        <div class="proto-note" id="protoNote"><svg class="ic"><use href="#i-circle-exclamation"/></svg><span>Прототип: заявка сохранена только в этом браузере, посмотреть её можно внизу главной страницы. Отправка в Telegram и таблицу подключается на следующем этапе.</span></div>
+      </section>
+
+      <!-- Не отправилось -->
+      <section class="quiz-step" data-step="error">
+        <div class="success-wrap">
+          <div class="success-icon fail"><svg class="ic"><use href="#i-circle-exclamation"/></svg></div>
+          <h2 class="step-title">Не удалось отправить</h2>
+          <p class="step-sub">Похоже, нет связи. Попробуйте ещё раз или отправьте заявку в WhatsApp, текст уже готов.</p>
+        </div>
+        <div class="stack">
+          <button class="btn btn-primary" type="button" id="retryBtn"><svg class="ic"><use href="#i-rotate-right"/></svg> Попробовать ещё раз</button>
+          <a class="btn btn-wa" id="errWaBtn" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Отправить в WhatsApp</a>
+          <button class="btn btn-ghost" type="button" id="errBackBtn"><svg class="ic"><use href="#i-arrow-left"/></svg> Вернуться к форме</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="ov-nav" id="quizNav">
+      <div class="inner">
+        <button class="btn btn-secondary" type="button" id="backBtn" aria-label="Назад"><svg class="ic"><use href="#i-arrow-left"/></svg></button>
+        <button class="btn btn-primary" type="submit" id="nextBtn">Продолжить</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- ===== ПОЛИТИКА ===== -->
+<div class="overlay" id="policyOverlay" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+  <div class="ov-top">
+    <button class="ov-close" type="button" data-close="policyOverlay" aria-label="Закрыть"><svg class="ic"><use href="#i-xmark"/></svg></button>
+    <div class="ov-title" id="policyTitle">Политика обработки персональных данных</div>
+  </div>
+  <div class="ov-body policy" style="padding-bottom:40px">
+    <p><mark>Шаблон. Перед запуском заполнить реквизиты и при необходимости согласовать с юристом.</mark></p>
+    <h3>1. Оператор</h3>
+    <p>Оператор персональных данных: <mark>ИП [Фамилия Имя Отчество]</mark>, ИНН <mark>[000000000000]</mark>, ОГРНИП <mark>[000000000000000]</mark>, адрес: <mark>[г. Якутск, ...]</mark>, телефон +7 914 103 29 66.</p>
+    <h3>2. Какие данные обрабатываем</h3>
+    <p>Фамилия, имя, отчество или название организации, номер телефона, сведения о заказе (описание товара, фотографии, направление доставки), а также технические данные о посещении сайта.</p>
+    <h3>3. Зачем</h3>
+    <p>Чтобы связаться с вами по заявке, рассчитать стоимость, выполнить поиск и доставку товара и оформить документы для организаций.</p>
+    <h3>4. Правовое основание</h3>
+    <p>Согласие субъекта персональных данных, которое вы даёте, отмечая соответствующее поле в форме заявки (ст. 6 и ст. 9 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных»).</p>
+    <h3>5. Срок и передача</h3>
+    <p>Данные хранятся не дольше, чем это нужно для выполнения заявки и требований законодательства. Третьим лицам передаются только перевозчикам и магазинам в объёме, необходимом для выполнения заказа.</p>
+    <h3>6. Ваши права</h3>
+    <p>Вы можете отозвать согласие, запросить уточнение или удаление данных, написав на <mark>[e-mail]</mark> или позвонив по телефону выше.</p>
+  </div>
+</div>
+
+<!-- ===== ПРИНЯТЫЕ ЗАЯВКИ (прототип) ===== -->
+<div class="overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div class="ov-top">
+    <button class="ov-close" type="button" data-close="adminOverlay" aria-label="Закрыть"><svg class="ic"><use href="#i-xmark"/></svg></button>
+    <div class="ov-title" id="adminTitle">Принятые заявки <span style="color:var(--muted);font-weight:600">· прототип</span></div>
+  </div>
+  <div class="ov-body" style="padding-bottom:40px">
+    <p class="hint" style="margin:0 0 16px">Так заявки будут приходить владельцу в Telegram. Пока они сохраняются только в этом браузере.</p>
+    <div id="adminList"></div>
+    <div class="danger-row" id="adminActions" hidden>
+      <button class="btn btn-danger" type="button" id="clearBtn"><svg class="ic"><use href="#i-trash"/></svg> Очистить список</button>
+    </div>
+    <div class="danger-row" id="adminConfirm" hidden>
+      <button class="btn btn-ghost" type="button" id="clearNo">Оставить</button>
+      <button class="btn btn-danger" type="button" id="clearYes">Да, удалить все</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- Настройки: меняются в одном месте ---------- */
+  const CONFIG = {
+    endpoint: 'https://script.google.com/macros/s/AKfycbyh9qRLoOS6IMDgVDpAm31TJ08tKupf0uZV86oHWHbM9FVBNQYgrpDsKUD8D_Kym_rnSg/exec', // Apps Script. Пусто = режим прототипа, заявки остаются в браузере
+    phoneDisplay: '+7 914 103 29 66',
+    phoneDigits: '79141032966',
+    brand: 'Поиск и Снабжение',
+    maxFiles: 5,
+    maxFileMb: 10,
+    sendDelayMs: 1200,          // имитация отправки в прототипе
+    draftKey: 'ps_draft_v1',
+    requestsKey: 'ps_requests_v1'
+  };
+
+  const TOTAL = 6;
+  const $  = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  const overlay = $('#quizOverlay');
+  const form = $('#quizForm');
+  const nextBtn = $('#nextBtn');
+  const backBtn = $('#backBtn');
+  const nav = $('#quizNav');
+  const progressFill = $('#progressFill');
+  const progressLabel = $('#progressLabel');
+  const progressBar = $('.progress-track', overlay);
+
+  let step = 1;
+  let files = [];      // {file, url}
+  let sending = false;
+  let lastText = '';
+
+  /* ---------- Хранилище с защитой от ошибок ---------- */
+  const store = {
+    get(k, fallback){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : fallback; } catch(e){ return fallback; } },
+    set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} },
+    del(k){ try { localStorage.removeItem(k); } catch(e){} }
+  };
+
+  /* ---------- Открыть / закрыть оверлеи ---------- */
+  function lockBody(on){ document.body.style.overflow = on ? 'hidden' : ''; }
+  function openOverlay(el){ el.classList.add('open'); lockBody(true); el.scrollTop = 0; }
+  function closeOverlay(el){ el.classList.remove('open'); if(!$('.overlay.open')) lockBody(false); }
+
+  $('#openQuizBtn').addEventListener('click', () => {
+    openOverlay(overlay);
+    if(step === 'done'){ resetQuiz(); }
+    showStep(step);
+  });
+  $('#closeQuizBtn').addEventListener('click', () => closeOverlay(overlay));
+  $$('[data-close]').forEach(b => b.addEventListener('click', () => closeOverlay($('#' + b.dataset.close))));
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape'){ const o = $$('.overlay.open').pop(); if(o) closeOverlay(o); }
+  });
+
+  /* ---------- Шаги ---------- */
+  function showStep(n){
+    step = n;
+    const final = typeof n !== 'number';   // 'done' или 'error'
+    $$('.quiz-step').forEach(el => el.classList.toggle('active', el.dataset.step === String(n)));
+    progressFill.style.width = (final ? 100 : n / TOTAL * 100) + '%';
+    progressLabel.textContent = n === 'done' ? 'Готово' : n === 'error' ? 'Не отправлено' : `Шаг ${n} из ${TOTAL}`;
+    progressBar.setAttribute('aria-valuenow', final ? TOTAL : n);
+    backBtn.hidden = (n === 1);
+    nav.hidden = final;
+    if(!final && !sending) nextBtn.innerHTML = (n === TOTAL) ? 'Отправить заявку и запустить поиск' : 'Продолжить';
+    if(n === 6) renderReview();
+    overlay.scrollTop = 0;
+    const title = $('.quiz-step.active .step-title');
+    if(title){ title.setAttribute('tabindex','-1'); title.focus({preventScroll:true}); }
+  }
+
+  function showError(n, msg){
+    const el = $('#err' + n);
+    if(!el) return;
+    $('span', el).textContent = msg;
+    el.hidden = false;
+    const grid = $('#grid' + n); if(grid) grid.classList.add('is-invalid');
+    el.scrollIntoView({block:'nearest', behavior:'smooth'});
+  }
+  function clearError(n){
+    const el = $('#err' + n); if(el) el.hidden = true;
+    const grid = $('#grid' + n); if(grid) grid.classList.remove('is-invalid');
+    $$('.is-invalid', $(`.quiz-step[data-step="${n}"]`)).forEach(x => x.classList.remove('is-invalid'));
+  }
+
+  function phoneDigits(){ return $('#phoneField').value.replace(/\D/g,''); }
+
+  function validate(n){
+    if(n === 1 && !$('input[name=category]:checked')) return 'Выберите категорию, чтобы продолжить';
+    if(n === 2 && $('#descField').value.trim().length < 3){ $('#fieldDesc').classList.add('is-invalid'); return 'Напишите, что нужно найти: название, модель или артикул'; }
+    if(n === 3 && !$('input[name=urgency]:checked')) return 'Укажите, как срочно нужен товар';
+    if(n === 4 && !$('input[name=direction]:checked')) return 'Выберите направление доставки';
+    if(n === 5 && !$('input[name=clientType]:checked')) return 'Укажите, кто оформляет заявку';
+    if(n === 6){
+      if($('#nameField').value.trim().length < 2){ $('#fieldName').classList.add('is-invalid'); return 'Укажите имя или название компании'; }
+      if(phoneDigits().length !== 11){ $('#fieldPhone').classList.add('is-invalid'); return 'Введите номер телефона полностью, 10 цифр после +7'; }
+      if(!$('#consentField').checked){ $('#consentWrap').classList.add('is-invalid'); return 'Нужно согласие на обработку персональных данных'; }
+    }
+    return '';
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if(sending || typeof step !== 'number') return;
+    const msg = validate(step);
+    if(msg){ showError(step, msg); return; }
+    clearError(step);
+    if(step < TOTAL){ showStep(step + 1); } else { submit(); }
+  });
+  backBtn.addEventListener('click', () => { if(step > 1 && step !== 'done') showStep(step - 1); });
+
+  // Снимаем ошибку, как только пользователь что-то выбрал или ввёл
+  form.addEventListener('change', e => { if(typeof step === 'number') clearError(step); saveDraft(); });
+  form.addEventListener('input',  e => { if(typeof step === 'number') clearError(step); saveDraft(); });
+
+  /* ---------- Файлы ---------- */
+  const fileInput = $('#fileInput');
+  const fileList = $('#fileList');
+  $('#uploadBox').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    const incoming = Array.from(fileInput.files || []);
+    fileInput.value = '';
+    for(const f of incoming){
+      if(files.length >= CONFIG.maxFiles){ showError(2, `Можно прикрепить не больше ${CONFIG.maxFiles} файлов`); break; }
+      if(f.size > CONFIG.maxFileMb * 1024 * 1024){ showError(2, `Файл «${f.name}» больше ${CONFIG.maxFileMb} МБ. Сожмите фото или выберите другой файл`); continue; }
+      if(files.some(x => x.file.name === f.name && x.file.size === f.size)) continue;
+      const url = f.type.startsWith('image/') ? URL.createObjectURL(f) : '';
+      files.push({file: f, url});
+    }
+    renderFiles();
+  });
+  function fmtSize(b){ return b < 1024*1024 ? Math.max(1, Math.round(b/1024)) + ' КБ' : (b/1024/1024).toFixed(1) + ' МБ'; }
+  function renderFiles(){
+    fileList.innerHTML = '';
+    files.forEach((x, i) => {
+      const chip = document.createElement('div');
+      chip.className = 'file-chip';
+      const thumb = x.url ? Object.assign(document.createElement('img'), {className:'thumb', src:x.url, alt:''})
+                          : Object.assign(document.createElement('div'), {className:'ph', innerHTML:'<svg class="ic"><use href="#i-file-lines"/></svg>'});
+      const nm = Object.assign(document.createElement('span'), {className:'nm', textContent:x.file.name});
+      const sz = Object.assign(document.createElement('span'), {className:'sz', textContent:fmtSize(x.file.size)});
+      const rm = Object.assign(document.createElement('button'), {className:'rm', type:'button', innerHTML:'<svg class="ic"><use href="#i-xmark"/></svg>'});
+      rm.setAttribute('aria-label', 'Убрать файл ' + x.file.name);
+      rm.addEventListener('click', () => { if(x.url) URL.revokeObjectURL(x.url); files.splice(i,1); renderFiles(); });
+      chip.append(thumb, nm, sz, rm);
+      fileList.appendChild(chip);
+    });
+  }
+
+  /* ---------- Маска телефона ---------- */
+  const phoneField = $('#phoneField');
+  phoneField.addEventListener('input', e => {
+    const v = e.target.value;
+    let raw = v.replace(/\D/g,'');
+    if(v.startsWith('+7')) raw = raw.slice(1);
+    else if((raw[0] === '7' || raw[0] === '8') && (raw.length === 1 || raw.length === 11)) raw = raw.slice(1);
+    raw = raw.slice(0,10);
+    if(!raw.length){ e.target.value = ''; return; }
+    let out = '+7 (' + raw.slice(0,3);
+    if(raw.length >= 3) out += ')';
+    if(raw.length > 3) out += ' ' + raw.slice(3,6);
+    if(raw.length > 6) out += '-' + raw.slice(6,8);
+    if(raw.length > 8) out += '-' + raw.slice(8,10);
+    e.target.value = out;
+  });
+
+  // Подпись поля имени зависит от типа клиента
+  $$('input[name=clientType]').forEach(r => r.addEventListener('change', () => {
+    const b2b = r.value.indexOf('B2B') !== -1;
+    $('#nameLabel').textContent = b2b ? 'Название компании и контактное лицо' : 'ФИО';
+    $('#nameField').placeholder = b2b ? 'ООО «Компания», Иванов Иван' : 'Иванов Иван Иванович';
+  }));
+
+  /* ---------- Сбор данных ---------- */
+  function val(sel){ const el = $(sel); return el ? el.value : ''; }
+  function collect(){
+    return {
+      category: val('input[name=category]:checked'),
+      desc: $('#descField').value.trim(),
+      files: files.map(x => x.file.name),
+      urgency: val('input[name=urgency]:checked'),
+      direction: val('input[name=direction]:checked'),
+      town: $('#townField').value.trim(),
+      clientType: val('input[name=clientType]:checked'),
+      name: $('#nameField').value.trim(),
+      phone: $('#phoneField').value.trim()
+    };
+  }
+
+  function renderReview(){
+    const d = collect();
+    const rows = [
+      [1, 'Категория', d.category],
+      [2, 'Товар', d.desc],
+      [2, 'Фото', d.files.length ? d.files.length + ' файл(а)' : 'нет'],
+      [3, 'Срочность', d.urgency],
+      [4, 'Куда', d.direction + (d.town ? ', ' + d.town : '')],
+      [5, 'Клиент', d.clientType]
+    ];
+    const box = $('#reviewRows');
+    box.innerHTML = '';
+    rows.forEach(([n, k, v]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'review-row';
+      b.innerHTML = `<span class="k">${k}</span><span class="v"></span><span class="e">Изменить</span>`;
+      $('.v', b).textContent = v || '—';
+      b.addEventListener('click', () => showStep(n));
+      box.appendChild(b);
+    });
+  }
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function fmtDate(ts){ const d = new Date(ts); return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`; }
+  function nextId(list){
+    const d = new Date();
+    const day = `${String(d.getFullYear()).slice(2)}${pad(d.getMonth()+1)}${pad(d.getDate())}`;
+    const today = list.filter(r => r.id.indexOf('ПС-' + day) === 0).length;
+    return `ПС-${day}-${pad(today + 1)}`;
+  }
+
+  function buildText(d, id, ts){
+    return [
+      `📦 Новая заявка «${CONFIG.brand}» ${id}`,
+      `Категория: ${d.category}`,
+      `Товар: ${d.desc}`,
+      `Фото: ${d.files.length ? d.files.length + ' файл(а): ' + d.files.join(', ') : 'нет'}`,
+      `Срочность: ${d.urgency}`,
+      `Направление: ${d.direction}${d.town ? ', ' + d.town : ''}`,
+      `Тип клиента: ${d.clientType}`,
+      `Контакт: ${d.name}, ${d.phone}`,
+      `Отправлено: ${fmtDate(ts)}`
+    ].join('\n');
+  }
+
+  /* ---------- Отправка ---------- */
+  function setSending(on){
+    sending = on;
+    nextBtn.disabled = on;
+    nextBtn.innerHTML = on ? '<span class="spin" aria-hidden="true"></span> Отправляем заявку…' : 'Отправить заявку и запустить поиск';
+  }
+  function waLink(text, hasFiles){
+    const t = hasFiles ? text + '\n\nФото отправлю в этом чате.' : text;
+    return `https://wa.me/${CONFIG.phoneDigits}?text=${encodeURIComponent(t)}`;
+  }
+  function finish(d, id, ts){
+    const text = buildText(d, id, ts);
+    lastText = text;
+    store.del(CONFIG.draftKey);
+    $('#reqId').textContent = '№ ' + id;
+    $('#summaryBox').textContent = text;
+    $('#sendWaBtn').href = waLink(text, d.files.length > 0);
+    showStep('done');
+  }
+  function fileToBase64(blob){
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = () => res(String(r.result).split(',')[1]);
+      r.onerror = () => rej(new Error('read'));
+      r.readAsDataURL(blob);
+    });
+  }
+  // Сжимаем фото с телефона до 1600 px по длинной стороне: вместо 5–8 МБ уходит 200–500 КБ
+  function compressImage(file, maxSide, quality){
+    return new Promise((res, rej) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const k = Math.min(1, maxSide / Math.max(img.width, img.height));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        c.toBlob(b => b ? res(b) : rej(new Error('canvas')), 'image/jpeg', quality);
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); rej(new Error('decode')); };
+      img.src = url;
+    });
+  }
+  async function prepareFiles(){
+    const out = [];
+    for(const x of files){
+      let blob = x.file, name = x.file.name, type = x.file.type || 'application/octet-stream';
+      if(type.startsWith('image/')){
+        try { blob = await compressImage(x.file, 1600, 0.82); type = 'image/jpeg'; name = name.replace(/\.[^.]+$/, '') + '.jpg'; } catch(e){}
+      }
+      out.push({ name, type, data: await fileToBase64(blob) });
+    }
+    return out;
+  }
+  async function submit(){
+    if(sending) return;
+    setSending(true);
+    const d = collect();
+    const ts = Date.now();
+
+    // Режим прототипа: сервер не задан, заявка сохраняется в этом браузере
+    if(!CONFIG.endpoint){
+      setTimeout(() => {
+        const list = store.get(CONFIG.requestsKey, []);
+        const id = nextId(list);
+        list.unshift({id, ts, data: d, text: buildText(d, id, ts)});
+        store.set(CONFIG.requestsKey, list);
+        setSending(false);
+        finish(d, id, ts);
+      }, CONFIG.sendDelayMs);
+      return;
+    }
+
+    // Боевой режим: заявка уходит в Apps Script → Таблица + Telegram
+    try {
+      const payload = Object.assign({}, d, {
+        files: await prepareFiles(),
+        website: $('#websiteField').value,          // ловушка для спам-ботов, у людей всегда пустое
+        source: location.hostname || 'file'
+      });
+      const res = await fetch(CONFIG.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // text/plain, чтобы браузер не слал preflight, который Apps Script не умеет
+        body: JSON.stringify(payload)
+      });
+      const out = await res.json();
+      if(!out || !out.ok) throw new Error(out && out.error ? out.error : 'server');
+      setSending(false);
+      finish(d, out.id, ts);
+    } catch(err) {
+      setSending(false);
+      lastText = buildText(d, 'без номера', ts);
+      $('#errWaBtn').href = waLink(lastText, d.files.length > 0);
+      showStep('error');
+    }
+  }
+  $('#retryBtn').addEventListener('click', () => { showStep(6); submit(); });
+  $('#errBackBtn').addEventListener('click', () => showStep(6));
+
+  $('#copyBtn').addEventListener('click', () => {
+    const btn = $('#copyBtn');
+    const done = () => { const old = btn.innerHTML; btn.innerHTML = '<svg class="ic"><use href="#i-check"/></svg> Скопировано'; setTimeout(() => btn.innerHTML = old, 1600); };
+    const fallback = () => {
+      const box = $('#summaryBox'); const r = document.createRange(); r.selectNodeContents(box);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch(e){ btn.textContent = 'Выделите текст выше и скопируйте'; }
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(lastText).then(done, fallback); } else { fallback(); }
+  });
+
+  function resetQuiz(){
+    form.reset();
+    files.forEach(x => { if(x.url) URL.revokeObjectURL(x.url); });
+    files = []; renderFiles();
+    $('#nameLabel').textContent = 'ФИО';
+    for(let i = 1; i <= TOTAL; i++) clearError(i);
+    step = 1;
+  }
+  $('#newReqBtn').addEventListener('click', () => { resetQuiz(); showStep(1); });
+
+  /* ---------- Черновик: не теряем ответы, если браузер закрылся ---------- */
+  function saveDraft(){
+    if(step === 'done') return;
+    const d = collect(); delete d.files;
+    store.set(CONFIG.draftKey, d);
+  }
+  function restoreDraft(){
+    const d = store.get(CONFIG.draftKey, null);
+    if(!d) return;
+    const pick = (name, value) => { const el = $$(`input[name=${name}]`).find(x => x.value === value); if(el) el.checked = true; };
+    pick('category', d.category); pick('urgency', d.urgency); pick('direction', d.direction); pick('clientType', d.clientType);
+    $('#descField').value = d.desc || ''; $('#townField').value = d.town || '';
+    $('#nameField').value = d.name || ''; $('#phoneField').value = d.phone || '';
+    if(d.clientType && d.clientType.indexOf('B2B') !== -1){ $('#nameLabel').textContent = 'Название компании и контактное лицо'; }
+  }
+  restoreDraft();
+
+  /* ---------- Политика ---------- */
+  ['#policyLink', '#policyLink2'].forEach(s => $(s).addEventListener('click', () => openOverlay($('#policyOverlay'))));
+
+  /* ---------- Принятые заявки (прототип) ---------- */
+  const adminOverlay = $('#adminOverlay');
+  function renderAdmin(){
+    const list = store.get(CONFIG.requestsKey, []);
+    const box = $('#adminList');
+    box.innerHTML = '';
+    $('#adminActions').hidden = !list.length;
+    $('#adminConfirm').hidden = true;
+    if(!list.length){
+      box.innerHTML = '<div class="empty"><svg class="ic"><use href="#i-inbox"/></svg>Пока нет заявок.<br>Пройдите квиз на главной, и заявка появится здесь.</div>';
+      return;
+    }
+    list.forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'req-card';
+      card.innerHTML = `<div class="top"><span class="id"></span><span class="ts"></span></div>
+        <div class="meta"><b></b> · <span class="cat"></span><br><span class="dir"></span></div>
+        <details><summary>Показать текст для Telegram</summary><pre></pre></details>`;
+      $('.id', card).textContent = r.id;
+      $('.ts', card).textContent = fmtDate(r.ts);
+      $('.meta b', card).textContent = r.data.name + ', ' + r.data.phone;
+      $('.cat', card).textContent = r.data.category;
+      $('.dir', card).textContent = r.data.direction + (r.data.town ? ', ' + r.data.town : '') + ' · ' + r.data.urgency;
+      $('pre', card).textContent = r.text;
+      box.appendChild(card);
+    });
+  }
+  $('#adminLink').addEventListener('click', () => { renderAdmin(); openOverlay(adminOverlay); });
+  $('#clearBtn').addEventListener('click', () => { $('#adminActions').hidden = true; $('#adminConfirm').hidden = false; });
+  $('#clearNo').addEventListener('click', () => { $('#adminConfirm').hidden = true; $('#adminActions').hidden = false; });
+  $('#clearYes').addEventListener('click', () => { store.del(CONFIG.requestsKey); renderAdmin(); });
+
+  /* ---------- Контакты из настроек ---------- */
+  $('#headerPhone').href = 'tel:+' + CONFIG.phoneDigits;
+  $('.num', $('#headerPhone')).textContent = CONFIG.phoneDisplay;
+  $('#footerWa').href = 'https://wa.me/' + CONFIG.phoneDigits;
+  $('#footerTel').href = 'tel:+' + CONFIG.phoneDigits;
+
+  // В боевом режиме подсказки прототипа и локальный список заявок не нужны
+  if(CONFIG.endpoint){ $('#adminLink').hidden = true; $('#protoNote').hidden = true; }
+
+  showStep(1);
+})();
+</script>
+</body>
+</html>
